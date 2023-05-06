@@ -184,7 +184,7 @@ namespace cn.sharesdk.unity3d
 		public const int type = (int) PlatformType.WeChat;
 		public string app_id = "wx617c77c82218ea2c";
         public string app_secret = "c7253e5289986cf4c4c74d1ccc185fb1";
-        public string app_universalLink = "https://bj2ks.share2dlink.com/";
+        public string app_universalLink = "d78e67a15f7e4cbfd124b22f9fc2acad.share2dlink.com";
         #endif
     }
 
@@ -1062,7 +1062,7 @@ namespace cn.sharesdk.unity3d
 #if UNITY_ANDROID
 
 #elif UNITY_IPHONE
-        public string capabilititesAssociatedDomain = "applinks:ahmn.t4m.cn";
+        public string capabilititesAssociatedDomain = "applinks:ciqc.t4m.cn";
         public string capabilititesEntitlementsPathInXcode = "Unity-iPhone/Base.entitlements";
 #endif
     }
