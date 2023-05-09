@@ -8,7 +8,7 @@ using System;
 public class BuildManager : Editor
 {
     //在这里找出你当前工程所有的场景文件，假设你只想把部分的scene文件打包 那么这里可以写你的条件判断 总之返回一个字符串数组。
-    static string[] GetBuildScenes()
+    public static string[] GetBuildScenes()
     {
         List<string> names = new List<string>();
         foreach (EditorBuildSettingsScene e in EditorBuildSettings.scenes)
@@ -16,7 +16,12 @@ public class BuildManager : Editor
             if (e == null)
                 continue;
             if (e.enabled)
+            {
                 names.Add(e.path);
+                // if (e.path.Contains("test"))
+                // {
+                // }
+            }
         }
         return names.ToArray();
     }
@@ -42,12 +47,14 @@ public class BuildManager : Editor
     /// <summary>
     /// 打包Android应用
     /// </summary>
-    static void BuildForAndroid()
+    ///
+    [MenuItem("Tools/BuildForAndroid")]
+    public static void BuildForAndroid()
     {
         // 签名文件配置，若不配置，则使用Unity默认签名
         PlayerSettings.Android.keyaliasName = "demokey.keystore";
         PlayerSettings.Android.keyaliasPass = "123456";
-        PlayerSettings.Android.keystoreName = Application.dataPath.Replace("/Assets", "") + "Plugins/Android/ShareSDK/demokey.keystore";
+        PlayerSettings.Android.keystoreName = Application.dataPath + "/Plugins/Android/ShareSDK/demokey.keystore";
         PlayerSettings.Android.keystorePass = "123456";
 
         // APK路径、名字配置
