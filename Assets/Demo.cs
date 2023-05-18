@@ -4,8 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using cn.sharesdk.unity3d;
 using LitJson;
-public class Demo : MonoBehaviour {
+using UnityEngine.UI;
 
+public class Demo : MonoBehaviour
+{
+
+	public Button btnLogin;
 	public GUISkin demoSkin;
 	public ShareSDK ssdk;
 	
@@ -30,8 +34,14 @@ public class Demo : MonoBehaviour {
         ssdk.wxRequestHandler = GetWXRequestTokenResultHandler;
         ShareSDKRestoreScene.setRestoreSceneListener(OnRestoreScene);
         #endif
-
-    }
+		
+		WeChatLogin.Init();
+		
+		btnLogin.onClick.AddListener(() =>
+		{
+			WeChatLogin.Login();
+		});
+	}
 
 	// Update is called once per frame
 	void Update () 
